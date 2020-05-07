@@ -9,6 +9,8 @@
 import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    
+    //let pageVC = UIPageViewController()
 
     var VC1 = ViewController1()
     var VC2 = ViewController2()

@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         self.window = window
         
-        let initVC = PageViewController()
+        let initVC = MainViewController()
         
         window.rootViewController = initVC
         

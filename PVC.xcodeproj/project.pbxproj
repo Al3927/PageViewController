@@ -17,6 +17,10 @@
 		CEAFF7442463FCC4004421C9 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAFF7422463FCC4004421C9 /* ViewController2.xib */; };
 		CEAFF7472463FD70004421C9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF7452463FD70004421C9 /* PageViewController.swift */; };
 		CEAFF7482463FD70004421C9 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAFF7462463FD70004421C9 /* PageViewController.xib */; };
+		CEAFF74B24640CF1004421C9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF74924640CF1004421C9 /* MainViewController.swift */; };
+		CEAFF74C24640CF1004421C9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAFF74A24640CF1004421C9 /* MainViewController.xib */; };
+		CEAFF74F24641177004421C9 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF74D24641176004421C9 /* DataViewController.swift */; };
+		CEAFF75024641177004421C9 /* DataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAFF74E24641176004421C9 /* DataViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		CEAFF7422463FCC4004421C9 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
 		CEAFF7452463FD70004421C9 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		CEAFF7462463FD70004421C9 /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
+		CEAFF74924640CF1004421C9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CEAFF74A24640CF1004421C9 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CEAFF74D24641176004421C9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		CEAFF74E24641176004421C9 /* DataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,10 @@
 				CEAFF7422463FCC4004421C9 /* ViewController2.xib */,
 				CEAFF7452463FD70004421C9 /* PageViewController.swift */,
 				CEAFF7462463FD70004421C9 /* PageViewController.xib */,
+				CEAFF74924640CF1004421C9 /* MainViewController.swift */,
+				CEAFF74A24640CF1004421C9 /* MainViewController.xib */,
+				CEAFF74D24641176004421C9 /* DataViewController.swift */,
+				CEAFF74E24641176004421C9 /* DataViewController.xib */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -154,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAFF7482463FD70004421C9 /* PageViewController.xib in Resources */,
+				CEAFF75024641177004421C9 /* DataViewController.xib in Resources */,
+				CEAFF74C24640CF1004421C9 /* MainViewController.xib in Resources */,
 				CEAFF7402463FCB1004421C9 /* ViewController1.xib in Resources */,
 				CEAFF7442463FCC4004421C9 /* ViewController2.xib in Resources */,
 				CEAFF7342463FB5A004421C9 /* LaunchScreen.storyboard in Resources */,
@@ -169,8 +183,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAFF73F2463FCB1004421C9 /* ViewController1.swift in Sources */,
+				CEAFF74F24641177004421C9 /* DataViewController.swift in Sources */,
 				CEAFF7472463FD70004421C9 /* PageViewController.swift in Sources */,
 				CEAFF7432463FCC4004421C9 /* ViewController2.swift in Sources */,
+				CEAFF74B24640CF1004421C9 /* MainViewController.swift in Sources */,
 				CEAFF7282463FB58004421C9 /* AppDelegate.swift in Sources */,
 				CEAFF72A2463FB58004421C9 /* SceneDelegate.swift in Sources */,
 			);
