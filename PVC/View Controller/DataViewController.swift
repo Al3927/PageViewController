@@ -12,9 +12,11 @@ class DataViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
     var displayText: String?
+    var backgroundImageURL: String?
+    var index = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .orange
         displayLabel.text = displayText
         // Do any additional setup after loading the view.
     }

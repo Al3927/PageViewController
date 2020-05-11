@@ -131,7 +131,9 @@ class MainViewController: UIViewController {
         return stackView
         
     }
-    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
     func CreatButton(color: UIColor = UIColor.white, text: String, isCorner: Bool = false) -> UIButton {
             
     //        GeometryReader { geometry in
@@ -143,7 +145,8 @@ class MainViewController: UIViewController {
             newButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
             newButton.backgroundColor = color
             newButton.setTitle(text, for: .normal)
-            newButton.setTitleColor(.black, for: .normal)
+        //newButton.titleLabel?.text = text
+            //newButton.setTitleColor(.black, for: .normal)
             newButton.translatesAutoresizingMaskIntoConstraints = false
             if isCorner {
                 newButton.layer.cornerRadius = newButton.bounds.size.width / 4
@@ -167,18 +170,18 @@ class MainViewController: UIViewController {
             pageViewController.goToPreviousPage()
         }else if (sender.title(for:.normal) == "Page1" && buttonTitleBefore != "Page1"){
             
-            pageViewController.goToPage(At: 0)
+            pageViewController.goToPage1(At: 0)
             buttonTitleBefore = "Page1"
             
             
         }else if sender.title(for:.normal) == "Page2" && buttonTitleBefore != "Page2"{
-            pageViewController.goToPage(At: 1)
+            pageViewController.goToPage1(At: 1)
             buttonTitleBefore = "Page2"
         }else if sender.title(for:.normal) == "Page3" && buttonTitleBefore != "Page3"{
-            pageViewController.goToPage(At: 2)
+            pageViewController.goToPage1(At: 2)
             buttonTitleBefore = "Page3"
         }else{
-            print("Khong co gi")
+            //print("Khong co gi")
         }
         
         

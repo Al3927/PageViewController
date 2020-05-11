@@ -10,15 +10,11 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+   
+    var dataSources = ["Welcome", "Fast and Furious", "Like a Boss"]
+    var imageSource = ["","",""]
+    var currentViewControllerIndex = 0
     //let pageVC = UIPageViewController()
-
-    var VC1 = ViewController1()
-    var VC2 = ViewController2()
-    var VC3 = ViewController3()
-    
-    lazy var orderedViewController: [UIViewController] = {
-        return [VC1, VC2, VC3]
-    }()
     
     var pageControl = UIPageControl()
     
@@ -29,10 +25,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         self.dataSource = self
         
-        if let firstViewController = orderedViewController.first {
+        let firstViewController = detailViewControllerAt(index:0)
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
             
-        }
+        
         
         self.delegate = self
         configurePageControl()
@@ -42,7 +38,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     func configurePageControl(){
         pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 150, width: UIScreen.main.bounds.width, height: 150))
         
-        pageControl.numberOfPages = orderedViewController.count
+        pageControl.numberOfPages = dataSources.count
         
         pageControl.currentPage = 0
         
@@ -53,43 +49,71 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         pageControl.currentPageIndicatorTintColor = .black
         
         self.view.addSubview(pageControl)
+        
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        let viewsDictionary: [String:Any] = ["pageControl": pageControl]
+        
+        
+        
+        let pageControl_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageControl]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        
+        let pageControl_V = NSLayoutConstraint.constraints(withVisualFormat: "V:|-300-[pageControl]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        
+        view.addConstraints(pageControl_H)
+        view.addConstraints(pageControl_V)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard let viewControllerIndex = orderedViewController.firstIndex(of:viewController) else {
+
+        
+        let dataViewController = viewController as? DataViewController
+        
+        guard let viewControllerIndex = dataViewController?.index else {
             return nil
         }
+        
+        currentViewControllerIndex = viewControllerIndex
         
         let nextIndex = viewControllerIndex + 1
         
-        guard orderedViewController.count != nextIndex else {
-            return orderedViewController.first
+        guard dataSources.count != nextIndex else {
+            return detailViewControllerAt(index:0)
         }
         
-        guard orderedViewController.count > nextIndex else {
+        guard dataSources.count > nextIndex else {
             return nil
         }
         
-        return orderedViewController[nextIndex]
+        return detailViewControllerAt(index:nextIndex)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewController.firstIndex(of:viewController) else {
+
+        
+        let dataViewController = viewController as? DataViewController
+        
+        guard let viewControllerIndex = dataViewController?.index else {
             return nil
         }
+        
+        currentViewControllerIndex = viewControllerIndex
         
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return orderedViewController.last
+            return detailViewControllerAt(index: dataSources.endIndex-1)
+           
         }
         
-        guard orderedViewController.count > previousIndex else {
+        guard dataSources.count > previousIndex else {
             return nil
         }
         
-        return orderedViewController[previousIndex]
+        return detailViewControllerAt(index: previousIndex)
+        
+         
     }
 
 
@@ -97,19 +121,43 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         let pageContentViewController = pageViewController.viewControllers![0]
         
-        self.pageControl.currentPage = orderedViewController.firstIndex(of: pageContentViewController)!
+        //self.pageControl.currentPage = orderedViewController.firstIndex(of: pageContentViewController)!
+        let tempController = pageContentViewController as? DataViewController
+        
+        guard let index = tempController?.index else{
+            return
+        }
+            
+        self.pageControl.currentPage = index
+        
+        
     }
     
-    func goToPage(At: Int){
-        if(At < 0 || At > orderedViewController.count){
+    
+    func goToPage1(At: Int){
+        if(At < 0 || At >= dataSources.count){
             
             return
         }else{
             
-            setViewControllers([orderedViewController[At]], direction: .forward, animated: true, completion: nil)
+            setViewControllers([detailViewControllerAt(index: At)], direction: .forward, animated: true, completion: nil)
+            
+            self.pageControl.currentPage = At
+            
         }
        
         
+    }
+    
+    func detailViewControllerAt(index: Int) -> DataViewController{
+//        if(index<0||index>=orderedViewController.count){
+//            return nil
+//        }
+        let dataViewController = DataViewController()
+        dataViewController.index = index
+        dataViewController.displayText = dataSources[index]
+        dataViewController.backgroundImageURL = imageSource[index]
+        return dataViewController
     }
 
     /*
@@ -121,43 +169,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         // Pass the selected object to the new view controller.
     }
     */
-
-    func CreatButton(color: UIColor = UIColor.white, text: String, isCorner: Bool = false) -> UIButton {
-            
-    //        GeometryReader { geometry in
-    //            //screenWidth: geometry.size.width //CG Float
-    //        }
-            
-            let newButton = UIButton()
-            newButton.frame.size = CGSize(width: buttonWidth, height: buttonHeight)
-            newButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            newButton.backgroundColor = color
-            newButton.setTitle(text, for: .normal)
-            newButton.setTitleColor(.black, for: .normal)
-            newButton.translatesAutoresizingMaskIntoConstraints = false
-            if isCorner {
-                newButton.layer.cornerRadius = newButton.bounds.size.width / 4
-                newButton.clipsToBounds = true
-            }
-            //self.view.addSubview(newButton)
-            
-            return newButton
-        }
-    
-    @objc func buttonAction(sender: UIButton!){
-        
-        
-        
-    }
     
     
-}
-
-extension PageViewController{
-    private var buttonWidth: CGFloat {
-        return self.view.bounds.width
-    }
-    private var buttonHeight: CGFloat {
-        return 50.0;
-    }
 }
