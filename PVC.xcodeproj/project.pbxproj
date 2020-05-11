@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE8FC5042468F77500F07E7A /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FC5022468F77500F07E7A /* ViewController3.swift */; };
+		CE8FC5052468F77500F07E7A /* ViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FC5032468F77500F07E7A /* ViewController3.xib */; };
 		CEAFF7282463FB58004421C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF7272463FB58004421C9 /* AppDelegate.swift */; };
 		CEAFF72A2463FB58004421C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF7292463FB58004421C9 /* SceneDelegate.swift */; };
 		CEAFF7312463FB5A004421C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAFF7302463FB5A004421C9 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE8FC5022468F77500F07E7A /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		CE8FC5032468F77500F07E7A /* ViewController3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController3.xib; sourceTree = "<group>"; };
 		CEAFF7242463FB58004421C9 /* PVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAFF7272463FB58004421C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEAFF7292463FB58004421C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				CEAFF74A24640CF1004421C9 /* MainViewController.xib */,
 				CEAFF74D24641176004421C9 /* DataViewController.swift */,
 				CEAFF74E24641176004421C9 /* DataViewController.xib */,
+				CE8FC5022468F77500F07E7A /* ViewController3.swift */,
+				CE8FC5032468F77500F07E7A /* ViewController3.xib */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -171,6 +177,7 @@
 				CEAFF7402463FCB1004421C9 /* ViewController1.xib in Resources */,
 				CEAFF7442463FCC4004421C9 /* ViewController2.xib in Resources */,
 				CEAFF7342463FB5A004421C9 /* LaunchScreen.storyboard in Resources */,
+				CE8FC5052468F77500F07E7A /* ViewController3.xib in Resources */,
 				CEAFF7312463FB5A004421C9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +191,7 @@
 			files = (
 				CEAFF73F2463FCB1004421C9 /* ViewController1.swift in Sources */,
 				CEAFF74F24641177004421C9 /* DataViewController.swift in Sources */,
+				CE8FC5042468F77500F07E7A /* ViewController3.swift in Sources */,
 				CEAFF7472463FD70004421C9 /* PageViewController.swift in Sources */,
 				CEAFF7432463FCC4004421C9 /* ViewController2.swift in Sources */,
 				CEAFF74B24640CF1004421C9 /* MainViewController.swift in Sources */,

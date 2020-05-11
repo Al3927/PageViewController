@@ -14,9 +14,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
 
     var VC1 = ViewController1()
     var VC2 = ViewController2()
+    var VC3 = ViewController3()
     
     lazy var orderedViewController: [UIViewController] = {
-        return [VC1, VC2]
+        return [VC1, VC2, VC3]
     }()
     
     var pageControl = UIPageControl()
@@ -98,6 +99,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         self.pageControl.currentPage = orderedViewController.firstIndex(of: pageContentViewController)!
     }
+    
+    func goToPage(At: Int){
+        
+       setViewControllers([orderedViewController[At]], direction: .forward, animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -109,4 +116,42 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     */
 
+    func CreatButton(color: UIColor = UIColor.white, text: String, isCorner: Bool = false) -> UIButton {
+            
+    //        GeometryReader { geometry in
+    //            //screenWidth: geometry.size.width //CG Float
+    //        }
+            
+            let newButton = UIButton()
+            newButton.frame.size = CGSize(width: buttonWidth, height: buttonHeight)
+            newButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            newButton.backgroundColor = color
+            newButton.setTitle(text, for: .normal)
+            newButton.setTitleColor(.black, for: .normal)
+            newButton.translatesAutoresizingMaskIntoConstraints = false
+            if isCorner {
+                newButton.layer.cornerRadius = newButton.bounds.size.width / 4
+                newButton.clipsToBounds = true
+            }
+            //self.view.addSubview(newButton)
+            
+            return newButton
+        }
+    
+    @objc func buttonAction(sender: UIButton!){
+        
+        
+        
+    }
+    
+    
+}
+
+extension PageViewController{
+    private var buttonWidth: CGFloat {
+        return self.view.bounds.width
+    }
+    private var buttonHeight: CGFloat {
+        return 50.0;
+    }
 }
