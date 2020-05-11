@@ -154,18 +154,31 @@ class MainViewController: UIViewController {
             return newButton
         }
     
+     var buttonTitleBefore = ""
+    
     @objc func buttonAction(sender: UIButton!){
+        
+       
+        
         if(sender.title(for: .normal) == "Next")
         {
             pageViewController.goToNextPage()
         }else if(sender.title(for:.normal) == "Previous"){
             pageViewController.goToPreviousPage()
-        }else if sender.title(for:.normal) == "Page1"{
+        }else if (sender.title(for:.normal) == "Page1" && buttonTitleBefore != "Page1"){
+            
             pageViewController.goToPage(At: 0)
-        }else if sender.title(for:.normal) == "Page2"{
+            buttonTitleBefore = "Page1"
+            
+            
+        }else if sender.title(for:.normal) == "Page2" && buttonTitleBefore != "Page2"{
             pageViewController.goToPage(At: 1)
-        }else if sender.title(for:.normal) == "Page3"{
+            buttonTitleBefore = "Page2"
+        }else if sender.title(for:.normal) == "Page3" && buttonTitleBefore != "Page3"{
             pageViewController.goToPage(At: 2)
+            buttonTitleBefore = "Page3"
+        }else{
+            print("Khong co gi")
         }
         
         

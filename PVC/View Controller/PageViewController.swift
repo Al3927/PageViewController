@@ -101,8 +101,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     func goToPage(At: Int){
-        
-       setViewControllers([orderedViewController[At]], direction: .forward, animated: true, completion: nil)
+        if(At < 0 || At > orderedViewController.count){
+            
+            return
+        }else{
+            
+            setViewControllers([orderedViewController[At]], direction: .forward, animated: true, completion: nil)
+        }
+       
         
     }
 
